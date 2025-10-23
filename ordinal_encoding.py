@@ -4,12 +4,13 @@ import numpy as np
 df=pd.read_csv("train.csv")
 
 def ordinalencoder(df,column_name):
-    distinct_values=set(df[column_name])
+    df=df.copy()
+    # distinct_values=set(df[column_name])
     c=0
     d={}
     
 
-    for i in distinct_values:
+    for i in df[column_name].dropna().unique():
         d[i]=c
         c+=1
     
@@ -19,4 +20,4 @@ def ordinalencoder(df,column_name):
     
 
 df=ordinalencoder(df,"SaleCondition")
-print(df["SaleCondition"])
+print(df["SaleCondition"].unique())
