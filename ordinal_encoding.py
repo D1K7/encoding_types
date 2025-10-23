@@ -5,7 +5,7 @@ df=pd.read_csv("train.csv")
 
 def ordinalencoder(df,column_name):
     df=df.copy()
-    # distinct_values=set(df[column_name])
+    
     c=0
     d={}
     
@@ -20,4 +20,4 @@ def ordinalencoder(df,column_name):
     
 
 df=ordinalencoder(df,"SaleCondition")
-print(df["SaleCondition"].unique())
+print(df["SaleCondition"])
